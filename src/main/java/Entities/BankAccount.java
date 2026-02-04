@@ -1,20 +1,30 @@
-package com.example.demo;
-
+package Entities;
+import jakarta.persistence.*;
 import java.util.Objects;
-import java.util.Scanner;
-
+@Entity
 public abstract class BankAccount {
-    protected int account_id;
-    protected String user_name;
-    protected String password;
-    protected double balance;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column private int accountId;
 
-    public BankAccount(int account_id, String user_name, String password, double balance) {
-        this.account_id = account_id;
-        this.user_name = user_name;
+    @Column private String userName;
+    @Column private String password;
+    @Column private double balance;
+
+    public BankAccount(int accountId, String userName, String password, double balance) {
+        this.accountId = accountId;
+        this.userName = userName;
         this.password = password;
         this.balance = balance;
     }
+
+    public BankAccount() {
+
+    }
+
+    public abstract void calculateInterest();
+
+
     public double deposit(int amount){
         balance = balance + amount;
         return balance;
@@ -27,7 +37,6 @@ public abstract class BankAccount {
         }
         return balance;
     }
-    public abstract void calculateInterest();
 
     public void transfer(int amount, BankAccount targetAccount) {
         if (this.balance >= amount && amount > 0) {
@@ -39,13 +48,13 @@ public abstract class BankAccount {
         }
     }
     public String displayInfo(){
-        return "Name:" + user_name +
+        return "Name:" + userName +
                 "\nRemaining balance: " + balance;
     }
 
     @Override
     public String toString(){
-        return user_name;
+        return userName;
     }
 
     @Override
@@ -53,15 +62,20 @@ public abstract class BankAccount {
         if (this == o) return true;
         if (!(o instanceof BankAccount)) return false;
         BankAccount that = (BankAccount) o;
-        return account_id == that.account_id;
+        return accountId == that.accountId;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(account_id);
+        return Objects.hash(accountId);
     }
-    public String getUser_name() {
-        return user_name;
+
+    public int getAccountId() {
+        return accountId;
+    }
+
+    public String getUserName() {
+        return userName;
     }
 
     public String getPassword() {
@@ -72,23 +86,19 @@ public abstract class BankAccount {
         return balance;
     }
 
-    public int getAccount_id() {
-        return account_id;
+    public void setAccountId(int accountId) {
+        this.accountId = accountId;
     }
 
-    public void setUser_name(String user_name) {
-        this.user_name = user_name;
+    public void setUserName(String userName) {
+        this.userName = userName;
     }
 
     public void setPassword(String password) {
         this.password = password;
     }
 
-    public void setBalance(int balance) {
+    public void setBalance(double balance) {
         this.balance = balance;
-    }
-
-    public void setAccount_id(int account_id) {
-        this.account_id = account_id;
     }
 }

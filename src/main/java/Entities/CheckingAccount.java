@@ -1,4 +1,4 @@
-package com.example.demo;
+package Entities;
 
 public class CheckingAccount extends BankAccount implements InterestBearing.Transferable {
     private double overdraftLimit;

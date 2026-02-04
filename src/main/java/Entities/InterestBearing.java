@@ -1,4 +1,4 @@
-package com.example.demo;
+package Entities;
 
 public interface InterestBearing {
     void calculateInterest();

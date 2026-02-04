@@ -1,4 +1,4 @@
-package com.example.demo;
+package Entities;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -26,7 +26,7 @@ public class AccountService {
 
     public BankAccount findByUser(List<BankAccount> accounts, String username) {
         for (BankAccount acc : accounts) {
-            if (acc.getUser_name().equals(username)) {
+            if (acc.getUserName().equals(username)) {
                 return acc;
             }
         }

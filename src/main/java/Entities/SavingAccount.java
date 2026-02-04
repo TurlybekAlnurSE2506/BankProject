@@ -1,4 +1,4 @@
-package com.example.demo;
+package Entities;
 
 public class SavingAccount extends BankAccount implements InterestBearing {
     private double interestRate;
@@ -10,7 +10,7 @@ public class SavingAccount extends BankAccount implements InterestBearing {
 
     @Override
     public void calculateInterest() {
-        setBalance((int) (balance * interestRate));
+        setBalance((int) (getBalance() * interestRate));
     }
 
     public double getInterestRate() {
