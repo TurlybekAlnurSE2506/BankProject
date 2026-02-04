@@ -1,4 +1,6 @@
-package Entities;
+package entities;
+
+import Service.InterestBearing;
 
 public class CheckingAccount extends BankAccount implements InterestBearing.Transferable {
     private double overdraftLimit;

@@ -1,4 +1,6 @@
-package Entities;
+package entities;
+
+import Service.InterestBearing;
 
 public class SavingAccount extends BankAccount implements InterestBearing {
     private double interestRate;

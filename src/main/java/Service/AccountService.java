@@ -1,4 +1,6 @@
-package Entities;
+package Service;
+
+import entities.BankAccount;
 
 import java.util.ArrayList;
 import java.util.List;

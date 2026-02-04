@@ -1,4 +1,6 @@
-package Entities;
+package Service;
+
+import entities.BankAccount;
 
 public interface InterestBearing {
     void calculateInterest();
