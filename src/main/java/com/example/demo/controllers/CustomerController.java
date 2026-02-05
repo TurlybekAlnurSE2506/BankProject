@@ -4,7 +4,6 @@ import com.example.demo.Service.CustomerService;
 import com.example.demo.entities.BankAccount;
 import com.example.demo.entities.Customer;
 import org.springframework.web.bind.annotation.*;
-import com.example.demo.repositories.CustomerRepo;
 
 import java.util.HashMap;
 import java.util.List;

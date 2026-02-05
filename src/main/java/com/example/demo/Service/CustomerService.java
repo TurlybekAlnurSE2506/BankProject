@@ -13,8 +13,8 @@ public class CustomerService {
     public CustomerService(CustomerRepo customerRepo) {
         this.customerRepo = customerRepo;
     }
-    public double getTotalBalance(int CustomerId) {
-        Customer customer = customerRepo.findById(CustomerId).orElseThrow(()
+    public double getTotalBalance(int customerId) {
+        Customer customer = customerRepo.findById(customerId).orElseThrow(()
                 -> new RuntimeException("Customer not found"));
         return customer.getBankAccounts()
                 .stream()

@@ -5,7 +5,4 @@ import com.example.demo.entities.BankAccount;
 public interface InterestBearing {
     void calculateInterest();
 
-    interface Transferable {
-        void transfer(int amount, BankAccount target);
-    }
 }

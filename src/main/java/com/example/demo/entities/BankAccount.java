@@ -1,7 +1,9 @@
-package entities;
+package com.example.demo.entities;
 import jakarta.persistence.*;
 import java.util.Objects;
 @Entity
+@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
+@DiscriminatorColumn(name = "account_type")
 public abstract class BankAccount {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -23,34 +25,6 @@ public abstract class BankAccount {
     }
 
     public abstract void calculateInterest();
-
-
-    public double deposit(int amount){
-        balance = balance + amount;
-        return balance;
-    }
-    public double withdraw(int amount){
-        if(balance >= amount && amount >= 0){
-            balance = balance - amount;
-        } else {
-            System.out.println("Not enough balance");
-        }
-        return balance;
-    }
-
-    public void transfer(int amount, BankAccount targetAccount) {
-        if (this.balance >= amount && amount > 0) {
-            this.balance -= amount;
-            targetAccount.balance += amount;
-            System.out.println("Transfer successful");
-        } else {
-            System.out.println("Transfer failed: insufficient funds");
-        }
-    }
-    public String displayInfo(){
-        return "Name:" + userName +
-                "\nRemaining balance: " + balance;
-    }
 
     @Override
     public String toString(){

@@ -1,7 +1,9 @@
-package entities;
+package com.example.demo.entities;
 
-import Service.InterestBearing;
+import com.example.demo.Service.InterestBearing;
+import jakarta.persistence.Entity;
 
+@Entity
 public class SavingAccount extends BankAccount implements InterestBearing {
     private double interestRate;
 
@@ -9,6 +11,10 @@ public class SavingAccount extends BankAccount implements InterestBearing {
         super(account_id, user_name, password, balance);
         this.interestRate = interestRate;
     };
+
+    public SavingAccount() {
+
+    }
 
     @Override
     public void calculateInterest() {

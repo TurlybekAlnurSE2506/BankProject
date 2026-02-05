@@ -1,4 +1,4 @@
-package entities;
+package com.example.demo.entities;
 import jakarta.persistence.*;
 import java.util.List;
 @Entity
@@ -24,19 +24,10 @@ public class Customer {
     public Customer() {
 
     }
-
-    public void addAccount(BankAccount bankAccount) {
-        bankAccounts.add(bankAccount);
-    }
-    public String getTotalBalance() {
-        double total = bankAccounts.stream().mapToDouble(bankAccounts -> bankAccounts.getBalance()).sum();
-        return "Total balance: " + total;
-    }
     @Override
     public String toString() {
         return "Name: " + name + " " + surname +
-                "\nAccounts: " + bankAccounts +
-                "\n" + getTotalBalance();
+                "\nAccounts: " + bankAccounts;
     };
 
     public int getCustomerId() {
