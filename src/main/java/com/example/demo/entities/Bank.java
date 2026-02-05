@@ -1,4 +1,4 @@
-package entities;
+package com.example.demo.entities;
 import jakarta.persistence.*;
 import java.util.List;
 @Entity
@@ -24,20 +24,6 @@ public class Bank {
 
     public Bank() {
 
-    }
-
-    public void addCustomer(Customer customer) {
-        customers.add(customer);
-    }
-
-    public void removeCustomer(Customer customer) {
-        customers.remove(customer);
-    }
-
-    public void applyInterest() {
-        for (BankAccount acc : accounts) {
-            acc.calculateInterest();
-        }
     }
 
     public int customerCount() {
